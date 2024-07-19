@@ -1,0 +1,13 @@
+4
+duc
+10
+A
+kien
+9
+B
+hoa
+7
+C
+nga
+9
+A

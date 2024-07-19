@@ -1,0 +1,13 @@
+
+BÀI 20:
+1. Xây dựng lớp Vector 
+2. Xây dựng quản lý một cửa hàng bán tạp hóa, thông tin quản lý của cửa hàng gồm:
+    + Danh mục mặt hàng gồm các thông tin: Mã hàng, Tên hàng, nhà sản xuất
+    + Hóa đơn mua bán hàng: Mã hóa đơn, Mã hàng, Loại hóa đơn (Bán hoặc Mua), Số lượng, Ngày mua bán, Giá mua bán. 
+	Với các phương thức:
+    a.	Đọc danh thông tin quản lý của cửa hàng từ file vào chương trình
+    b.	Ghi thông tin quản lý của cửa hàng vào file
+    c.	Nhập xuất các mặt hàng
+    d.	Hiển thị toàn bộ danh sách mặt hàng hiện có 
+    e.	Thống kê số lượng mặt hàng tồn của mỗi mặt hàng
+3. Viết hàm main thực hiện các chức năng trên

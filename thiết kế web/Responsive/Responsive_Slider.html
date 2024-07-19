@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.header, .footer{
+			background-color: #68A8C0;	
+			padding: 15px;
+			text-align: center;
+		}
+		.row{
+			overflow: auto;
+		}
+		[class *= "col"]{
+			width: 100%;
+		}
+		
+		@media only screen and (min-width: 768px)
+		{
+			.col-m-1{width: 8.33%;}
+			.col-m-2{width: 16.67%;}
+			.col-m-3{width: 25%;}
+			.col-m-4{width: 33.33%;}
+			.col-m-5{width: 41.67%;}
+			.col-m-6{width: 50%;}
+			.col-m-7{width: 58.33%;}
+			.col-m-8{width: 66.67%;}
+			.col-m-9{width: 75%;}
+			.col-m-10{width: 83.33%;}
+			.col-m-11{width: 91.67%;}
+			.col-m-12{width: 100%;}	
+		}
+		@media only screen and (min-width: 992px)
+		{
+			.col-l-1{width: 8.33%;}
+			.col-l-2{width: 16.67%;}
+			.col-l-3{width: 25%;}
+			.col-l-4{width: 33.33%;}
+			.col-l-5{width: 41.67%;}
+			.col-l-6{width: 50%;}
+			.col-l-7{width: 58.33%;}
+			.col-l-8{width: 66.67%;}
+			.col-l-9{width: 75%;}
+			.col-l-10{width: 83.33%;}
+			.col-l-11{width: 91.67%;}
+			.col-l-12{width: 100%;}	
+		}
+		.main{
+			
+			float: left;
+			border: 1px solid red;
+			box-sizing: border-box;
+		}
+		.nav{
+			
+			float: left;
+			border: 1px solid red;
+			box-sizing: border-box;
+		}
+		.nav ul{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		.nav ul li{
+			background-color: #65CD57;
+			margin-bottom: 5px;
+		}
+		.nav li a{
+			line-height: 30px;
+			text-decoration: none;
+			color: #EA8585;
+			display: block;
+		}
+		.nav li a:hover{
+			background-color: #5F61C8;
+		}
+		.cityimg img{
+			max-width: 100%;
+			height: auto;
+		}
+		.slider{
+			width: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+			height: 200px;
+		}
+		.slider img{
+			width: 100%;
+			height: 200px;
+		}
+		.slider ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.slider li{
+			line-height: 0;
+			position: relative;
+		}
+		.one{
+			top: 0;
+			animation-name: one;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		.two{
+			top: -200px;
+			animation-name: two;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		.three{
+			top: -400px;
+			animation-name: three;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		.four{
+			top: -600px;
+			animation-name: four;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		.five{
+			top: -800px;
+			animation-name: five;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		@keyframes five{
+			0%{left: 0px; z-index: 1; opacity: 1;}
+			16%{left: 0px; z-index: 1; opacity: 1;}
+			20%{left: 100%px; z-index: 1; opacity: 1;}
+			21%{left: 100%; z-index: 0; opacity: 0;}
+			22%{left: -100%; z-index: 0; opacity: 0;}
+			95%{left: -100%; z-index: 0; opacity: 0;}
+			96%{left: -100%; z-index: 1; opacity: 1;}
+			100%{left: 0px; z-index: 1; opacity: 1;}
+		}
+		@keyframes four{
+			0%{left: -100%; z-index: 0; opacity: 0;}
+			15%{left: -100%; z-index: 0; opacity: 0;}
+			16%{left: -100%; z-index: 1; opacity: 1;}
+			20%{left: 0px; z-index: 1; opacity: 1;}
+			36%{left: 0px; z-index: 1; opacity: 1;}
+			40%{left: 100%; z-index: 1; opacity: 1;}
+			41%{left: 100%; z-index: 0; opacity: 0;}
+			42%{left: -100%; z-index: 0; opacity: 0;}
+			100%{left: -100%; z-index: 0; opacity: 0;}
+		}
+		@keyframes three{
+			0%{left: -100%; z-index: 0; opacity: 0;}
+			35%{left: -100%; z-index: 0; opacity: 0;}
+			36%{left: -100%; z-index: 1; opacity: 1;}
+			40%{left: 0px; z-index: 1; opacity: 1;}
+			56%{left: 0px; z-index: 1; opacity: 1;}
+			60%{left: 100%; z-index: 1; opacity: 1;}
+			61%{left: 100%; z-index: 0; opacity: 0;}
+			62%{left: -100%; z-index: 0; opacity: 0;}
+			100%{left: -100%; z-index: 0; opacity: 0;}
+		}
+		@keyframes two{
+			0%{left: -100%; z-index: 0; opacity: 0;}
+			55%{left: -100%; z-index: 0; opacity: 0;}
+			56%{left: -100%; z-index: 1; opacity: 1;}
+			60%{left: 0px; z-index: 1; opacity: 1;}
+			76%{left: 0px; z-index: 1; opacity: 1;}
+			80%{left: 100%; z-index: 1; opacity: 1;}
+			81%{left: 100%; z-index: 0; opacity: 0;}
+			82%{left: -100%; z-index: 0; opacity: 0;}
+			100%{left: -100%; z-index: 0; opacity: 0;}
+		}
+		@keyframes one{
+			0%{left: -100%; z-index: 0; opacity: 0;}
+			75%{left: -100%; z-index: 0; opacity: 0;}
+			76%{left: -100%; z-index: 1; opacity: 1;}
+			80%{left: 0px; z-index: 1; opacity: 1;}
+			96%{left: 0px; z-index: 1; opacity: 1;}
+			100%{left: 100%; z-index: 1; opacity: 1;}
+			
+		}
+		.prg-bar{
+			width: 100%;
+			position: relative;
+			top: -5px;
+			height: 5px;
+			background-color: #D11010;
+			z-index: 2;
+			animation-name: prog-bar;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		@keyframes prog-bar{
+			0%, 20%, 40%, 60%, 80%{width: 0%;  opacity: 0.7;}
+			16%, 36%, 56%, 76%, 96%{width: 100%; opacity: 0.7;}
+			17%, 37%, 57%, 77%, 97%{width: 0%; opacity: 0;}
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>The Header</h1>
+	</div>
+	<div class="row">
+		<div class="nav col-m-5 col-l-3">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Download</a></li>
+				<li><a href="#">Product</a></li>
+				<li><a href="#">Help</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<div class="main col-m-7 col-l-9">
+			<div class="slider">
+				<ul>
+					<li class="one"><a href=""><img src="images/img_1.jpg" alt=""></a></li>
+					<li class="two"><a href=""><img src="images/img_2.jpg" alt=""></a></li>
+					<li class="three"><a href=""><img src="images/img_3.jpg" alt=""></a></li>
+					<li class="four"><a href=""><img src="images/img_4.jpg" alt=""></a></li>
+					<li class="five"><a href=""><img src="images/img_5.jpg" alt=""></a></li>
+				</ul>
+			</div>
+			<div class="prg-bar"></div>
+			<h1>The city</h1>
+			<div class="cityimg"><img src="images/bridge.jpg" alt=""></div>
+			<p>Several pseudo-elements can also be combined. In the following example, the first letter of a paragraph will be red, in an xx-large font size. The rest of the first line will be blue, and in small-caps. The rest of the paragraph will be the default font size and color:</p>
+
+		</div>
+	</div>
+	<div class="footer">
+		<h3>The Footer</h3>
+	</div>
+</body>
+</html>

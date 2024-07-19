@@ -1,0 +1,222 @@
+#include<iostream>
+#include<conio.h>
+#include<string>
+#include<stdio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+class KH
+{
+private:
+	int Makh;
+	string Hoten;
+	long Sdt;
+public:
+	friend istream& operator>>(istream& is, KH& d);
+	friend ostream& operator<<(ostream& os, KH& d);
+	int GetMaKH() { return Makh; }
+	string GetTen() { return Hoten; }
+};
+
+istream& operator>>(istream& is, KH& d) {
+	cout << "Moi nhap thong tin khach hang:\n";
+	cout << "Nhap ma khach hang: ";
+	is >> d.Makh;
+	cout << "Nhap ho ten khach hang: ";
+	is.ignore(1);
+	getline(is, d.Hoten);
+	cout << "Nhap so dien thoai khach hang: ";
+	is >> d.Sdt;
+	return is;
+}
+
+ostream& operator<<(ostream& os, KH& d) {
+	os << d.Makh << "\t" << d.Hoten << "\t" << d.Sdt;
+	return os;
+}
+
+template<class T>
+class Node {
+private:
+	T* Data;
+	Node* Next;
+	Node* Pre;
+public:
+	Node() {
+		Next = NULL;
+		Pre = NULL;
+	}
+	Node* GetNext() {
+		return Next;
+	}
+	void SetNext(Node* p) {
+		Next = p;
+	}
+	Node* GetPre() {
+		return Pre;
+	}
+	void SetPre(Node* p) {
+		Pre = p;
+	}
+	T* GetData() {
+		return Data;
+	}
+	void SetData(T e) {
+		Data = &e;
+	}
+};
+
+template<class T>
+class List {
+private:
+	Node<T>* Head;
+	Node<T>* Tail;
+	long dem;
+public:
+	List() {
+		Head = NULL;
+		Tail = NULL;
+		dem = 0;
+	}
+	long size() {
+		return dem;
+	}
+	int Empty() {
+		return dem == 0;
+	}
+	Node<T>* Getfirst() {
+		return Head;
+	}
+	Node<T>* Getlast() {
+		return Tail;
+	}
+	void Replace(Node<T>* p, T e);
+	Node<T>* insertFirst(T e);
+	Node<T>* insertLast(T e);
+	void remove(Node<T>* p);
+	Node<T> GetNode(int i);
+};
+
+template<class T>
+void List<T>::Replace(Node<T>* p, T e) {
+	p->SetData(e);
+}
+
+template<class T>
+Node<T>* List<T>::insertFirst(T e) {
+	Node<T>* q;
+	q = new Node<T>;
+	q->SetData(e);
+	if (Empty()) {
+		Head = q;
+		Tail = q;
+	}
+	else {
+		q->SetNext(Head);
+		Head->SetPre(q);
+		Head = q;
+	}
+	dem++;
+	return q;
+}
+
+template<class T>
+Node<T>* List<T>::insertLast(T e) {
+	Node<T>* q;
+	q = new Node<T>;
+	q->SetData(e);
+	if (Empty()) {
+		Tail = q;
+		Head = q;
+	}
+	else {
+		Tail->SetNext(q);
+		q->SetPre(Tail);
+		Tail = q;
+	}
+	dem++;
+	return q;
+}
+
+template<class T>
+void List<T>::remove(Node<T>* p) {
+	if (p == Head) {
+		Head = Head->GetNext();
+		if (Head != NULL) {
+			Head->SetPre(NULL);
+		}
+	}
+	else if (p == Tail) {
+		Tail = Tail->GetPre();
+		if (Tail != NULL) {
+			Tail->SetNext(NULL);
+		}
+	}
+	else {
+		p->GetNext()->SetPre(p->GetPre());
+		p->GetPre()->SetNext(p->GetNext());
+	}
+	delete p;
+	dem--;
+}
+
+template<class T>
+Node<T> List<T>::GetNode(int i) {
+	if (i != 0 || Empty()) {
+		return NULL;
+	}
+	Node<T>* q;
+	int d = 0;
+	q = Head;
+	while (dem < i && q != NULL) {
+		d++;
+		q = q->GetNext();
+	}
+	return q;
+}
+
+int main() {
+	KH A;
+	List<KH> khl;
+	Node<KH> khn;
+	char lc1;
+	do {
+		cout << "\n_____MENU_____\nY - Tiep tuc nhap thong tin khach hang.\nN - Ket thuc nhap thong tin.";
+		cout << "\nMoi ban nhap lua chon: ";
+		cin >> lc1;
+		switch (lc1) {
+		case 'Y': {
+			cin >> A;
+			khn.SetData(A);
+			khl.insertFirst(A)->GetNext();
+			break;
+		}
+		case 'N': break;
+		default: cout << "Nhap lai!";
+		}
+	} while (lc1 != 'N');
+
+	int lc2;
+	do {
+		cout << "\n_____MENU_____\n1 - Xoa di mot khach hang.\n2 - Sua doi thong tin ho ten,SDT cua khach hang.\n0 - Thoat.";
+		cout << "\nMoi ban nhap lua chon:";
+		cin >> lc2;
+		switch (lc2) {
+		case 1: {
+			cout << "Ban co muon xoa khach hang nay?";
+			break;
+		}
+		case 2: {
+			cout << "Ban co muon doi thong tin, SDT cua khach hang nay?";
+			break;
+		}
+		case 0: break;
+		default: cout << "Nhap lai!";
+		}
+	} while (lc2 != 0);
+	for (Node<KH>* k = khl.Getfirst(); k != NULL; k = k->GetNext()) {
+		cout<<"Chao cac ban";
+		cout << k->GetData();
+	}
+}

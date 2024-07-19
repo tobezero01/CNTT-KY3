@@ -1,0 +1,7 @@
+
+ten hang : s
+loai hang : d
+so luong hang : 3
+ten hang : d
+loai hang : f
+so luong hang : 4

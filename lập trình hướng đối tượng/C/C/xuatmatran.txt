@@ -1,0 +1,12 @@
+3 3
+2 -2 5 
+4 5 -5 
+7 -19 1 
+trung binh cong cac so am cua ma tran la -8.66667
+phan tu am dau tien cua ma tran la -2.000000
+ gia tri am lon nhat la a[22][0] = -2.0
+tich hang thu 0 la -20.0 
+tich hang thu 1 la -100.0 
+tich hang thu 2 la -133.0 
+tich min la cua hang thu 2 = -133.0
+so phan tu duong cua ma tran la 6
